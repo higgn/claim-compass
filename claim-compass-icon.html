@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Claim Compass — Agent Icon</title>
+<style>
+  body { font-family: -apple-system, Segoe UI, sans-serif; background: #f4f6f9; text-align: center; padding: 40px; color: #1a1a1a; }
+  .frame { display: inline-block; padding: 30px; background: #ffffff; border-radius: 16px; box-shadow: 0 6px 24px rgba(10,37,64,.08); }
+  button { margin-top: 24px; padding: 12px 24px; font-size: 15px; background: #0A2540; color: #fff; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; }
+  button:hover { background: #0d3055; }
+  p { color: #555; margin-top: 16px; max-width: 380px; line-height: 1.4; }
+</style>
+</head>
+<body>
+<h1>Claim Compass — Agent Icon</h1>
+<div class="frame">
+  <svg id="icon" width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background gradient -->
+    <defs>
+      <radialGradient id="bg" cx="50%" cy="40%" r="65%">
+        <stop offset="0%" stop-color="#1a4d80"/>
+        <stop offset="100%" stop-color="#0A2540"/>
+      </radialGradient>
+    </defs>
+    <circle cx="128" cy="128" r="120" fill="url(#bg)"/>
+    <!-- Outer ring -->
+    <circle cx="128" cy="128" r="108" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.18"/>
+    <!-- Inner ring -->
+    <circle cx="128" cy="128" r="88" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.12"/>
+    <!-- Cardinal marks -->
+    <text x="128" y="38" font-family="Segoe UI, Arial" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle" opacity="0.7">N</text>
+    <text x="128" y="226" font-family="Segoe UI, Arial" font-size="10" font-weight="600" fill="#ffffff" text-anchor="middle" opacity="0.4">S</text>
+    <text x="32" y="133" font-family="Segoe UI, Arial" font-size="10" font-weight="600" fill="#ffffff" text-anchor="middle" opacity="0.4">W</text>
+    <text x="224" y="133" font-family="Segoe UI, Arial" font-size="10" font-weight="600" fill="#ffffff" text-anchor="middle" opacity="0.4">E</text>
+    <!-- Compass needle: red north, white south -->
+    <polygon points="128,52 150,128 128,118 106,128" fill="#E63946"/>
+    <polygon points="128,204 106,128 128,138 150,128" fill="#ffffff" opacity="0.95"/>
+    <!-- Center hub -->
+    <circle cx="128" cy="128" r="9" fill="#0A2540" stroke="#ffffff" stroke-width="2.5"/>
+    <circle cx="128" cy="128" r="3" fill="#ffffff"/>
+  </svg>
+  <br>
+  <button onclick="downloadPNG()">⬇ Download PNG (256×256)</button>
+  <p>Click the button → it saves <code>claim-compass-icon.png</code>. Upload that in Copilot Studio under Details → Change icon.</p>
+</div>
+
+<script>
+function downloadPNG() {
+  const svg = document.getElementById('icon');
+  const xml = new XMLSerializer().serializeToString(svg);
+  const svg64 = btoa(unescape(encodeURIComponent(xml)));
+  const img = new Image();
+  img.onload = function() {
+    const canvas = document.createElement('canvas');
+    canvas.width = 256;
+    canvas.height = 256;
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(img, 0, 0);
+    const link = document.createElement('a');
+    link.download = 'claim-compass-icon.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+  };
+  img.src = 'data:image/svg+xml;base64,' + svg64;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+// Paste this into the Adaptive Card Designer's FORMULA mode (Power Fx) in Copilot Studio.
+// Topic: "Show Verdict Card" — input vars: claimNumber, verdictLabel, citedSections, reasoning
+// CLEAN VERSION: no action buttons (display-only, prevents JSON leak in chat)
+
+{
+  type: "AdaptiveCard",
+  '$schema': "http://adaptivecards.io/schemas/adaptive-card.json",
+  version: "1.5",
+  body: [
+    {
+      type: "ColumnSet",
+      columns: [
+        {
+          type: "Column",
+          width: "auto",
+          items: [
+            {
+              type: "TextBlock",
+              text: "🧭",
+              size: "ExtraLarge",
+              spacing: "None"
+            }
+          ]
+        },
+        {
+          type: "Column",
+          width: "stretch",
+          items: [
+            {
+              type: "TextBlock",
+              text: "Claim Compass — Verdict",
+              weight: "Bolder",
+              size: "Medium",
+              color: "Accent",
+              spacing: "None"
+            },
+            {
+              type: "TextBlock",
+              text: "Claim " & Topic.claimNumber,
+              isSubtle: true,
+              spacing: "None"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      type: "Container",
+      style: "emphasis",
+      bleed: true,
+      items: [
+        {
+          type: "TextBlock",
+          text: Topic.verdictLabel,
+          weight: "Bolder",
+          size: "Large",
+          horizontalAlignment: "Center",
+          wrap: true
+        }
+      ]
+    },
+    {
+      type: "TextBlock",
+      text: Topic.reasoning,
+      wrap: true,
+      spacing: "Medium"
+    },
+    {
+      type: "FactSet",
+      facts: [
+        {title: "Cited Sections:", value: Topic.citedSections},
+        {title: "Source:", value: "Contoso Health Plan Policy"}
+      ]
+    },
+    {
+      type: "TextBlock",
+      text: "_Claim Compass provides policy-language interpretation only. Not legal or medical advice._",
+      isSubtle: true,
+      size: "Small",
+      wrap: true,
+      spacing: "Medium"
+    }
+  ]
+}

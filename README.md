@@ -35,7 +35,7 @@ Claim Compass collapses that workflow into one conversation.
 
 ## Demo
 
-▶ **[Watch the 5-minute demo on YouTube](https://youtu.be/aouuW-dDtb0)**
+▶ **[Watch the 5-minute demo on YouTube](https://www.youtube.com/watch?v=WyONSLqLGRI)**
 
 The video walks through three real flows:
 1. An appealable ER-ordered MRI denial, with a mid-conversation reasoning pivot when new facts come in.

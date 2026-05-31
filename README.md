@@ -3,6 +3,8 @@
 </p>
 
 <h1 align="center">Claim Compass</h1>
+<img width="1750" height="825" alt="image" src="https://github.com/user-attachments/assets/63f4d764-3045-4455-92ab-1ba4dc6ae3ce" />
+
 
 <p align="center">
   <b>An AI agent that reads your denied health insurance claim, finds the exact policy clause supporting an appeal, drafts the letter, and emails it.</b>
@@ -76,6 +78,7 @@ See [`architecture.md`](architecture.md) for the diagrams and full component bre
 - **Out-of-scope guardrail.** The agent declines questions outside its scope (weather, programming, etc.) and redirects to its capabilities. See evaluation Test 7.
 
 ## Evaluation
+<img width="1827" height="640" alt="image" src="https://github.com/user-attachments/assets/53cc47c8-1752-4cae-85dd-5bca97c17f80" />
 
 We ran the included test set through the **Copilot Studio Evaluation tab** in Single-response mode. Eight scenarios cover appealable cases, honestly-valid denials (cosmetic, late filing, PT cap), procedurally defective denials, mixed in/out-of-network reasoning, out-of-scope refusal, and PII attempts.
 
@@ -125,6 +128,7 @@ The human-readable test set is in [`evaluation-test-set.md`](evaluation-test-set
 - **Connector:** Office 365 Outlook, `Send an email (V2)`.
 
 ## Limitations and honest caveats
+<img width="1174" height="287" alt="image" src="https://github.com/user-attachments/assets/7a94b8ef-3b87-4fe0-ae2a-000a1286ceff" />
 
 - The Contoso plan policy is **synthetic** for demo safety. A production deployment would ground against an actual insurer plan document.
 - The Copilot Studio trial license **blocks publishing** to Teams or M365 Copilot. The demo runs in the Test pane, which is functionally complete and shows the full activity map.
